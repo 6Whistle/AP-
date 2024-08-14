@@ -1,0 +1,76 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             ARMex, CODE, READONLY
+    2 00000000                 ENTRY
+    3 00000000         
+    4 00000000 E59F0028        LDR              r0, =STRING
+    5 00000004 E59F1020        LDR              r1, STORE
+    6 00000008         
+    7 00000008         LOOP
+    8 00000008 E4D02001        LDRB             r2, [r0], #1
+    9 0000000C         
+   10 0000000C E3520000        CMP              r2, #0
+   11 00000010 E4C12001        STRB             r2, [r1], #1
+   12 00000014 1AFFFFFB        BNE              LOOP
+   13 00000018         
+   14 00000018 E1A0F00E        MOV              pc, lr
+   15 0000001C         
+   16 0000001C         
+   17 0000001C 48 65 6C 
+              6C 6F 2C 
+              20 57 6F 
+              72 6C 64 
+              00       STRING  DCB              "Hello, World", 0
+   18 00000029 00 00 00 
+              00040000 STORE   &                &40000
+   19 00000030         
+   20 00000030                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=ARM9E --apcs=interwork 
+--depend=.\objects\assignment_6.d -o.\objects\assignment_6.o -IC:\Keil_v5\ARM\R
+V31\INC -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --predefine=
+"__UVISION_VERSION SETA 521" --list=.\listings\assignment_6.lst assignment_6.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ARMex 00000000
+
+Symbol: ARMex
+   Definitions
+      At line 1 in file assignment_6.s
+   Uses
+      None
+Comment: ARMex unused
+LOOP 00000008
+
+Symbol: LOOP
+   Definitions
+      At line 7 in file assignment_6.s
+   Uses
+      At line 12 in file assignment_6.s
+Comment: LOOP used once
+STORE 0000002C
+
+Symbol: STORE
+   Definitions
+      At line 18 in file assignment_6.s
+   Uses
+      At line 5 in file assignment_6.s
+Comment: STORE used once
+STRING 0000001C
+
+Symbol: STRING
+   Definitions
+      At line 17 in file assignment_6.s
+   Uses
+      At line 4 in file assignment_6.s
+Comment: STRING used once
+4 symbols
+338 symbols in table
